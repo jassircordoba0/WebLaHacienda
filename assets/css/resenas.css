@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Inder', sans-serif;
+    background: #f5f5f3;
+}
+
+/* HEADER */
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 25px 50px;
+    background: #fff;
+    position: relative;
+}
+
+.logo img{
+    width: 170px;
+}
+
+/* MENU */
+
+nav{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+nav ul{
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: #111;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover{
+    color: #4d7c2f;
+}
+.active a{
+    color: #4d7c2f;
+}
+
+/* RESEÑAS */
+
+.resenas{
+    width: 100%;
+    padding: 20px 60px 80px;
+}
+
+.titulo-resenas{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.titulo-resenas h2{
+    color: #4d7c2f;
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.titulo-resenas p{
+    font-size: 22px;
+}
+
+/* CARDS */
+
+.contenedor-resenas{
+    max-width: 1200px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 30px;
+}
+
+.card-resena{
+    background: white;
+
+    border-radius: 20px;
+    border: 2px solid #bdbdbd;
+
+    padding: 30px;
+
+    position: relative;
+
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+
+.usuario{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+.usuario i{
+    font-size: 35px;
+}
+
+.usuario h3{
+    font-size: 28px;
+}
+
+.estrellas{
+    color: #4d7c2f;
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+.card-resena p{
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+.card-resena span{
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+
+    color: #4d7c2f;
+    font-size: 60px;
+}
+
+/* BOTON */
+
+.contenedor-boton{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.contenedor-boton button{
+    background: #4d7c2f;
+    color: white;
+
+    border: none;
+    border-radius: 15px;
+
+    padding: 18px 35px;
+
+    font-size: 28px;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.contenedor-boton button:hover{
+    background: #36581f;
+}
+
+/* MODAL */
+
+.modal{
+    width: 100%;
+    height: 100vh;
+
+    background: rgba(0,0,0,0.5);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-contenido{
+    background: white;
+
+    width: 500px;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    position: relative;
+}
+
+.modal-contenido h2{
+    text-align: center;
+    margin-bottom: 30px;
+
+    color: #4d7c2f;
+}
+
+.cerrar{
+    position: absolute;
+    top: 15px;
+    right: 20px;
+
+    font-size: 35px;
+    cursor: pointer;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+form input,
+form textarea{
+    width: 100%;
+
+    padding: 15px;
+
+    border: 2px solid #ccc;
+    border-radius: 12px;
+
+    font-size: 18px;
+}
+
+form textarea{
+    resize: none;
+    height: 150px;
+}
+
+form button{
+    background: #4d7c2f;
+    color: white;
+
+    border: none;
+    border-radius: 12px;
+
+    padding: 15px;
+
+    font-size: 18px;
+    cursor: pointer;
+}
+
+form button:hover{
+    background: #36581f;
+}
+
+/* ESTRELLAS */
+
+.calificacion{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.estrella{
+    font-size: 40px;
+    cursor: pointer;
+    color: #ccc;
+
+    transition: 0.3s;
+}
+
+.estrella.activa{
+    color: #4d7c2f;
+}
+
+.estrella:hover{
+    transform: scale(1.2);
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 900px){
+
+    .contenedor-resenas{
+        grid-template-columns: repeat(2,1fr);
+    }
+
+}
+
+@media(max-width: 600px){
+
+    header{
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav ul{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .contenedor-resenas{
+        grid-template-columns: 1fr;
+    }
+
+    .modal-contenido{
+        width: 90%;
+    }
+
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Iniciar Sesión</title>
+
+<link rel="stylesheet" href="../css/login.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <!-- IZQUIERDA -->
+    <div class="lado-imagen">
+
+        <img src="../img/login-bg.jpg" alt="">
+
+        <div class="overlay">
+
+            <div class="">
+
+                <i class=""></i>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- DERECHA -->
+    <div class="lado-formulario">
+
+        <i class="fa-solid fa-leaf hoja"></i>
+
+        <h2>INICIO DE SESIÓN</h2>
+
+        <div class="linea"></div>
+
+        <form id="loginForm">
+
+            <!-- EMAIL -->
+            <label>Correo electrónico</label>
+
+            <div class="input-box">
+
+                <i class="fa-regular fa-envelope"></i>
+
+                <input type="email"
+                id="loginEmail"
+                placeholder="ejemplo@correo.com">
+
+            </div>
+
+            <!-- PASSWORD -->
+            <label>Contraseña</label>
+
+            <div class="input-box">
+
+                <i class="fa-solid fa-lock"></i>
+
+                <input type="password"
+                id="loginPassword"
+                placeholder="Ingresa tu Contraseña">
+
+                <i class="fa-regular fa-eye ojo"></i>
+
+            </div>
+
+            <a href="#" class="olvido">
+                ¿Olvidaste tu contraseña?
+            </a>
+
+            <button type="submit">
+
+                <i class="fa-solid fa-right-to-bracket"></i>
+
+                Iniciar Sesión
+
+            </button>
+
+        </form>
+
+        <p class="registro">
+            ¿No tienes una cuenta?
+
+            <a href="registro.html">
+                Regístrate aquí
+            </a>
+        </p>
+
+    </div>
+
+</div>
+
+<!-- FIREBASE -->
+<script type="module" src="../js/login.js"></script>
+</body>
+</html>

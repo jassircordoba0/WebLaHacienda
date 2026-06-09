@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Inder', sans-serif;
+    background: #f5f5f3;
+    color: #222;
+}
+
+/* HEADER */
+
+header{
+    width: 100%;
+    padding: 25px 50px;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+}
+
+.logo img{
+    width: 170px;
+}
+
+/* MENU */
+
+nav{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+nav ul{
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: #111;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover{
+    color: #4d7c2f;
+}
+
+.active a{
+    color: #4d7c2f;
+}
+
+/* SERVICIOS */
+
+.servicios{
+    width: 100%;
+    padding: 20px 60px 60px;
+    text-align: center;
+}
+
+.titulo-servicios h2{
+    color: #4d7c2f;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.titulo-servicios p{
+    font-size: 22px;
+    line-height: 1.5;
+    margin-bottom: 50px;
+}
+
+/* GRID */
+
+.contenedor-servicios{
+    max-width: 1200px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* CARDS */
+
+.card-servicio{
+    background: #f5f5f3;
+
+    border: 2px solid #bdbdbd;
+    border-radius: 20px;
+
+    padding: 45px 20px;
+
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+
+    transition: 0.3s ease;
+
+    text-decoration: none;
+    color: #222;
+
+    display: block;
+}
+
+.card-servicio:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+}
+
+.card-servicio i{
+    font-size: 55px;
+    color: #4d7c2f;
+    margin-bottom: 20px;
+}
+
+.card-servicio h3{
+    color: #486f2d;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.card-servicio p{
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+.card-servicio span{
+    width: 80px;
+    height: 2px;
+
+    background: #5b8f37;
+
+    display: block;
+
+    margin: 25px auto 0;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 900px){
+
+    .contenedor-servicios{
+        grid-template-columns: repeat(2,1fr);
+    }
+
+}
+
+@media(max-width: 600px){
+
+    header{
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav{
+        position: static;
+        transform: none;
+    }
+
+    nav ul{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .contenedor-servicios{
+        grid-template-columns: 1fr;
+    }
+
+}
