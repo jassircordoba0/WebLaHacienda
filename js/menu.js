@@ -1,20 +1,14 @@
-import { db }
-from "./firebase-config.js";
+import { db } from "./firebase-config.js";
 
 import {
     ref,
     onValue
-}
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
-const contenedorMenu =
-document.getElementById("contenedorMenu");
-
-const botonesFiltro =
-document.querySelectorAll(".filtro");
+const contenedorMenu = document.getElementById("contenedorMenu");
+const botonesFiltro = document.querySelectorAll(".filtro");
 
 let menuCompleto = [];
-
 let filtroActual = "all";
 
 
@@ -22,28 +16,13 @@ let filtroActual = "all";
 // CARGAR MENU FIREBASE
 // ======================
 
-onValue(
-    ref(db, "menu"),
-    (snapshot) => {
-
-        menuCompleto = [];
-
-        snapshot.forEach((child) => {
-
-            menuCompleto.push({
-
-                id: child.key,
-
-                ...child.val()
-
-            });
-
-        });
-
-        renderizarMenu();
-
-    }
-);
+onValue(ref(db, "menu"), (snapshot) => {
+    menuCompleto = [];
+    snapshot.forEach((child) => {
+        menuCompleto.push({ id: child.key, ...child.val() });
+    });
+    renderizarMenu();
+});
 
 
 // ======================
@@ -51,24 +30,12 @@ onValue(
 // ======================
 
 botonesFiltro.forEach((boton) => {
-
     boton.addEventListener("click", () => {
-
-        botonesFiltro.forEach((btn) => {
-
-            btn.classList.remove("active");
-
-        });
-
+        botonesFiltro.forEach((btn) => btn.classList.remove("active"));
         boton.classList.add("active");
-
-        filtroActual =
-        boton.dataset.filter;
-
+        filtroActual = boton.dataset.filter;
         renderizarMenu();
-
     });
-
 });
 
 
@@ -76,54 +43,42 @@ botonesFiltro.forEach((boton) => {
 // RENDER MENU
 // ======================
 
-function renderizarMenu(){
-
+function renderizarMenu() {
     contenedorMenu.innerHTML = "";
 
-    const productosFiltrados =
-    filtroActual === "all"
-
-    ? menuCompleto
-
-    : menuCompleto.filter(
-
-        item =>
-        item.categoria === filtroActual
-
-    );
+    const productosFiltrados = filtroActual === "all"
+        ? menuCompleto
+        : menuCompleto.filter(item => item.categoria === filtroActual);
 
     productosFiltrados.forEach((item) => {
+        const card = document.createElement("div");
+        card.className = "card-menu";
 
-        contenedorMenu.innerHTML += `
+        const img = document.createElement("img");
+        img.src = item.imagen;
+        img.alt = item.nombre;
 
-        <div class="card-menu">
+        const contenido = document.createElement("div");
+        contenido.className = "contenido-card";
 
-            <img
-            src="${item.imagen}"
-            alt="${item.nombre}">
+        const h3 = document.createElement("h3");
+        h3.textContent = item.nombre;
 
-            <div class="contenido-card">
+        const span = document.createElement("span");
+        span.textContent = `C$${item.precio}`;
 
-                <h3>${item.nombre}</h3>
+        const btn = document.createElement("button");
+        btn.className = "btnDetalle";
+        btn.textContent = "Ver detalles →";
+        btn.addEventListener("click", () => abrirDetalle(item.id));
 
-                <span>C$${item.precio}</span>
-
-                <button
-                class="btnDetalle"
-                data-id="${item.id}">
-                    Ver detalles →
-                </button>
-
-            </div>
-
-        </div>
-
-        `;
-
+        contenido.appendChild(h3);
+        contenido.appendChild(span);
+        contenido.appendChild(btn);
+        card.appendChild(img);
+        card.appendChild(contenido);
+        contenedorMenu.appendChild(card);
     });
-
-    activarDetalles();
-
 }
 
 
@@ -131,80 +86,28 @@ function renderizarMenu(){
 // MODAL DETALLE
 // ======================
 
-const modalDetalle =
-document.getElementById("modalDetalle");
-
-const cerrarDetalle =
-document.getElementById("cerrarDetalle");
+const modalDetalle = document.getElementById("modalDetalle");
+const cerrarDetalle = document.getElementById("cerrarDetalle");
 
 cerrarDetalle.addEventListener("click", () => {
-
     modalDetalle.style.display = "none";
-
 });
 
 window.addEventListener("click", (e) => {
-
-    if(e.target === modalDetalle){
-
+    if (e.target === modalDetalle) {
         modalDetalle.style.display = "none";
-
     }
-
 });
 
+function abrirDetalle(id) {
+    const producto = menuCompleto.find(item => item.id === id);
+    if (!producto) return;
 
-// ======================
-// ABRIR DETALLE
-// ======================
+    document.getElementById("detalleImagen").src = producto.imagen;
+    document.getElementById("detalleNombre").textContent = producto.nombre;
+    document.getElementById("detallePrecio").textContent = `C$${producto.precio}`;
+    document.getElementById("detalleDescripcion").textContent = producto.descripcion;
+    document.getElementById("detalleIngredientes").textContent = producto.ingredientes;
 
-function activarDetalles(){
-
-    document
-    .querySelectorAll(".btnDetalle")
-    .forEach((btn) => {
-
-        btn.addEventListener("click", () => {
-
-            const id =
-            btn.dataset.id;
-
-            const producto =
-            menuCompleto.find(
-
-                item => item.id === id
-
-            );
-
-            document.getElementById(
-                "detalleImagen"
-            ).src = producto.imagen;
-
-            document.getElementById(
-                "detalleNombre"
-            ).textContent =
-            producto.nombre;
-
-            document.getElementById(
-                "detallePrecio"
-            ).textContent =
-            `C$${producto.precio}`;
-
-            document.getElementById(
-                "detalleDescripcion"
-            ).textContent =
-            producto.descripcion;
-
-            document.getElementById(
-                "detalleIngredientes"
-            ).textContent =
-            producto.ingredientes;
-
-            modalDetalle.style.display =
-            "flex";
-
-        });
-
-    });
-
+    modalDetalle.style.display = "flex";
 }

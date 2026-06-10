@@ -150,9 +150,33 @@ main {
     font-size: 1rem;
     color: #3d6b3d;
 }
-.icono {
-    font-size: 2rem;
-    margin-bottom: 6px;
+.icono-img {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 3px solid #3d6b3d;
+    box-shadow: 0 4px 12px rgba(61, 107, 61, 0.18);
+}
+
+.btn-logout {
+    background: #3d6b3d;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Inder', sans-serif;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    transition: background 0.2s;
+}
+
+.btn-logout:hover {
+    background: #274927;
 }
 /* Imagen principal ocupa todo el espacio y bordes redondeados */
 .imagen-principal {

@@ -40,7 +40,7 @@ registerForm.addEventListener("submit", async(e) => {
 
         alert("Cuenta creada correctamente");
 
-        window.location.href = "html/login.html";
+        window.location.href = "/html/login.html";
 
     }catch(error){
 

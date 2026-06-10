@@ -27,7 +27,7 @@ loginForm.addEventListener("submit", async(e) => {
 
         alert("Inicio de sesión exitoso");
 
-        window.location.href = "index.html";
+        window.location.href = "/index.html";
 
     }catch(error){
 
