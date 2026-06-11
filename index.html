@@ -11,29 +11,52 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
+
   <header>
     <div class="logo">
-      <img src="img/logo.jpg" alt="La Hacienda Estelí">
+      <a href="index.html"><img src="img/logo.jpg" alt="La Hacienda Estelí"></a>
     </div>
     <nav>
       <ul>
-        <li class="active"><a href="index.html">Inicio</a></li>
-        <li><a href="html/servicios.html">Servicios</a></li>
-        <li><a href="html/menu.html">Menú</a></li>
-        <li><a href="html/resenas.html">Reseñas</a></li>
-        <li><a href="html/contacto.html">Contacto</a></li>
-        <li>
-          <button id="btnLogout" class="btn-logout">
-            <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
-          </button>
+        <!-- Solo visible con sesión -->
+        <li id="navInicio" class="oculto nav-group">
+          <a href="index.html">Inicio</a>
+        </li>
+        <li id="navProtegido" class="oculto nav-group">
+          <a href="html/servicios.html">Servicios</a>
+        </li>
+        <li id="navProtegido2" class="oculto nav-group">
+          <a href="html/menu.html">Menú</a>
+        </li>
+        <li id="navProtegido3" class="oculto nav-group">
+          <a href="html/resenas.html">Reseñas</a>
+        </li>
+        <li id="navProtegido4" class="oculto nav-group">
+          <a href="html/contacto.html">Contacto</a>
         </li>
       </ul>
     </nav>
-    <div class="horario">
-      <i class="fa-solid fa-clock"></i>
-      <span>Abierto todos los días<br>9:00 A.M. – 8:00 P.M.</span>
+    <div class="header-acciones">
+      <div class="horario">
+        <i class="fa-solid fa-clock"></i>
+        <span>Abierto todos los días<br>9:00 A.M. – 8:00 P.M.</span>
+      </div>
+      <a id="btnLogin" href="html/login.html" class="btn-login-header oculto" style="display:none !important;"></a>
+      <button id="btnLogout" class="btn-logout oculto">
+        <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+      </button>
     </div>
   </header>
+
+  <!-- BANNER CTA — solo visible sin sesión -->
+  <div id="bannerCta" class="banner-cta oculto">
+    <div class="banner-cta-contenido">
+      <i class="fa-solid fa-leaf"></i>
+      <p>¡Inicia sesión para descubrir todos nuestros servicios, menú y reseñas!</p>
+      <a href="html/login.html" class="btn-primary">Iniciar sesión</a>
+      <a href="html/registro.html" class="btn-secondary">Crear cuenta</a>
+    </div>
+  </div>
 
   <main>
     <section class="hero">
@@ -42,10 +65,10 @@
         <h1>La tradición<br>se vive en familia</h1>
         <p>Disfruta de nuestras carnes asadas al estilo tradicional, refréscate en nuestra piscina y vive momentos inolvidables en un ambiente acogedor rodeado de naturaleza.</p>
         <div class="hero-botones">
-          <a href="html/servicios.html" class="btn-primary">Ver servicios</a>
-          <a href="html/menu.html" class="btn-secondary">
+          <button id="btnVerServicios" class="btn-primary">Ver servicios</button>
+          <button id="btnVerMenu" class="btn-secondary">
             <i class="fa-solid fa-utensils"></i> Ver menú
-          </a>
+          </button>
         </div>
       </div>
       <div class="hero-imagen">
@@ -94,9 +117,9 @@
       <div class="footer-col">
         <h4>Redes sociales</h4>
         <div class="footer-redes">
-          <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://tiktok.com" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://www.facebook.com/lahaciendaesteli/?locale=gl_ES" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/lahaciendaesteli/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@la.hacienda.estel" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
         </div>
       </div>
     </div>
@@ -105,6 +128,20 @@
     </div>
   </footer>
 
+  <!-- MODAL AVISO LOGIN -->
+  <div id="modalLogin" class="modal-aviso oculto">
+    <div class="modal-aviso-contenido">
+      <i class="fa-solid fa-lock"></i>
+      <h3>Inicia sesión para continuar</h3>
+      <p>Debes iniciar sesión para ver este contenido.</p>
+      <div class="modal-aviso-botones">
+        <a href="html/login.html" class="btn-primary">Iniciar sesión</a>
+        <button id="cerrarModalLogin" class="btn-cancelar-modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/auth-check.js"></script>
   <script type="module" src="js/logout.js"></script>
 </body>
 </html>

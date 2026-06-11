@@ -1,6 +1,7 @@
-import { initializeApp }  from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getAuth }         from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import { getDatabase }     from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+import { initializeApp }                        from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, setPersistence,
+         browserLocalPersistence }              from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getDatabase }                          from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
 const firebaseConfig = {
   apiKey:            "AIzaSyCrgw6Cs0H-GYBUkbWkdN16C8iIx3uwIIU",
@@ -15,3 +16,6 @@ const firebaseConfig = {
 const app  = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db   = getDatabase(app);
+
+// Sesión persiste aunque se cierre el navegador
+setPersistence(auth, browserLocalPersistence);

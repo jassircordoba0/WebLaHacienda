@@ -1,5 +1,106 @@
 /* style.css — Estilos de la página de inicio */
 
+/* ── UTILIDADES ───────────────────────────── */
+.oculto { display: none !important; }
+
+/* ── MODAL AVISO LOGIN ────────────────────── */
+.modal-aviso {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-aviso-contenido {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 40px 36px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  box-shadow: var(--shadow-md);
+}
+
+.modal-aviso-contenido > i {
+  font-size: 2.4rem;
+  color: var(--color-primary);
+}
+
+.modal-aviso-contenido h3 {
+  font-size: 1.3rem;
+  color: var(--color-text);
+}
+
+.modal-aviso-contenido p {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.modal-aviso-botones {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  width: 100%;
+}
+
+.modal-aviso-botones .btn-primary {
+  flex: 1;
+  text-align: center;
+}
+
+.btn-cancelar-modal {
+  flex: 1;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  border: 2px solid #ccc;
+  background: transparent;
+  color: #666;
+  font-size: 1rem;
+  font-family: var(--font-main);
+  cursor: pointer;
+  transition: border-color var(--transition), color var(--transition);
+}
+.btn-cancelar-modal:hover {
+  border-color: #999;
+  color: #333;
+}
+
+/* ── HEADER ACCIONES ──────────────────────── */
+.header-acciones {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+
+/* Quita el margin-left: auto del horario ya que ahora
+   vive dentro de .header-acciones */
+.header-acciones .horario {
+  margin-left: 0;
+}
+
+.btn-login-header {
+  background: var(--color-primary-bg);
+  color: var(--color-white);
+  padding: 8px 18px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  transition: background var(--transition);
+}
+.btn-login-header:hover { background: var(--color-primary-hv); }
+
 /* ── HORARIO ──────────────────────────────── */
 .horario {
   background: var(--color-primary-bg);
@@ -12,6 +113,52 @@
   align-items: center;
   gap: 10px;
   line-height: 1.5;
+}
+
+/* ── BANNER CTA ───────────────────────────── */
+.banner-cta {
+  background: linear-gradient(135deg, #2d5a1b 0%, #4d7c2f 100%);
+  color: var(--color-white);
+  padding: 22px 60px;
+}
+
+.banner-cta-contenido {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.banner-cta-contenido > i {
+  font-size: 1.6rem;
+  opacity: 0.9;
+  flex-shrink: 0;
+}
+
+.banner-cta-contenido p {
+  flex: 1;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.banner-cta .btn-primary {
+  background: var(--color-white);
+  color: var(--color-primary-bg);
+  white-space: nowrap;
+}
+.banner-cta .btn-primary:hover { background: #eaf3ea; }
+
+.banner-cta .btn-secondary {
+  border-color: rgba(255,255,255,0.6);
+  color: var(--color-white);
+  white-space: nowrap;
+}
+.banner-cta .btn-secondary:hover {
+  background: rgba(255,255,255,0.15);
+  color: var(--color-white);
 }
 
 /* ── HERO ─────────────────────────────────── */
@@ -147,10 +294,16 @@ main {
   .hero-botones { justify-content: center; }
   .hero-imagen img { height: 300px; border-radius: 20px; }
   .destacados { padding: 28px 24px 40px; gap: 24px; }
+  .banner-cta { padding: 20px 24px; }
+  .banner-cta-contenido { justify-content: center; text-align: center; }
+  .banner-cta-contenido > i { display: none; }
 }
 
 @media (max-width: 480px) {
   .hero-texto h1 { font-size: 2.2rem; }
   .destacados { flex-wrap: wrap; }
   .horario { display: none; }
+  .banner-cta-contenido { flex-direction: column; gap: 12px; }
+  .banner-cta .btn-primary,
+  .banner-cta .btn-secondary { width: 100%; justify-content: center; }
 }
