@@ -1,79 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body{
-    font-family: 'Inder', sans-serif;
-    background: #f5f5f3;
-}
-
-/* HEADER */
-
-header {
-    display: flex;
-    align-items: center;
-    padding: 25px 50px;
-    background: #fff;
-    position: relative;
-}
-
-.logo img{
-    width: 170px;
-}
-
-/* MENU */
-
-nav{
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-nav ul{
-    display: flex;
-    gap: 40px;
-    list-style: none;
-}
-
-nav ul li a{
-    text-decoration: none;
-    color: #111;
-    font-size: 20px;
-    transition: 0.3s;
-}
-
-nav ul li a:hover{
-    color: #4d7c2f;
-}
-.active a{
-    color: #4d7c2f;
-}
+/* resenas.css — Estilos específicos de la página de reseñas */
+/* Header, nav y btn-logout vienen de base.css */
 
 /* RESEÑAS */
 
-.resenas{
+.resenas {
     width: 100%;
     padding: 20px 60px 80px;
 }
 
-.titulo-resenas{
+.titulo-resenas {
     text-align: center;
     margin-bottom: 50px;
 }
 
-.titulo-resenas h2{
-    color: #4d7c2f;
+.titulo-resenas h2 {
+    color: var(--color-primary);
     font-size: 38px;
     margin-bottom: 10px;
 }
 
-.titulo-resenas p{
-    font-size: 22px;
-}
+.titulo-resenas p { font-size: 22px; }
 
 /* CARDS */
 
@@ -282,23 +228,10 @@ form button:hover{
 }
 
 @media(max-width: 600px){
-
-    header{
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    nav ul{
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
     .contenedor-resenas{
         grid-template-columns: 1fr;
     }
-
     .modal-contenido{
         width: 90%;
     }
-
 }

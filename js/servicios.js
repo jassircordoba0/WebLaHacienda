@@ -1,19 +1,19 @@
-// EFECTO HOVER EXTRA
+// servicios.js — Muestra una sección a la vez como tabs
 
-const cards = document.querySelectorAll(".card-servicio");
+const secciones = document.querySelectorAll(".seccion-servicio");
+const items     = document.querySelectorAll(".item-lateral");
 
-cards.forEach(card => {
+function mostrar(id) {
+    secciones.forEach((s) => s.classList.toggle("visible", s.id === id));
+    items.forEach((i) => i.classList.toggle("activo", i.dataset.target === id));
+}
 
-    card.addEventListener("mouseenter", () => {
-
-        card.style.transform = "translateY(-10px)";
-
+items.forEach((item) => {
+    item.addEventListener("click", (e) => {
+        e.preventDefault();
+        mostrar(item.dataset.target);
     });
-
-    card.addEventListener("mouseleave", () => {
-
-        card.style.transform = "translateY(0px)";
-
-    });
-
 });
+
+// Mostrar la primera sección al cargar
+mostrar(secciones[0].id);

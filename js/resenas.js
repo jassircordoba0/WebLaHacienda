@@ -1,10 +1,6 @@
 import { db } from "./firebase-config.js";
-
-import {
-    ref,
-    push,
-    onValue
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+import { showToast } from "./utils.js";
+import { ref, push, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
 
 // ===============================
@@ -72,7 +68,7 @@ formResena.addEventListener("submit", async (e) => {
     const comentario = document.getElementById("comentarioResena").value.trim();
 
     if (calificacionSeleccionada === 0) {
-        alert("Selecciona una calificación");
+        showToast("Selecciona una calificación", "error");
         return;
     }
 
@@ -84,7 +80,7 @@ formResena.addEventListener("submit", async (e) => {
             fecha: new Date().toISOString()
         });
 
-        alert("Reseña enviada correctamente");
+        showToast("Reseña enviada correctamente", "success");
 
         formResena.reset();
         calificacionSeleccionada = 0;
@@ -93,7 +89,7 @@ formResena.addEventListener("submit", async (e) => {
 
     } catch (error) {
         console.error(error);
-        alert("Error al guardar la reseña");
+        showToast("Error al guardar la reseña", "error");
     }
 });
 

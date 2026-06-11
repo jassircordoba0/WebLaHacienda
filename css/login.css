@@ -1,15 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
+/* login.css — Estilos del formulario de inicio de sesión */
+/* Reset y body-font vienen de base.css */
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:'Inder', sans-serif;
-    background:#d9d2be;
-}
+body { background: #d9d2be; }
 
 .contenedor{
     width:100%;

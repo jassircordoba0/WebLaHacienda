@@ -1,54 +1,92 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Áreas Verdes</title>
-
-<link rel="stylesheet" href="../css/areas.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Áreas Verdes | La Hacienda</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/detalle-servicio.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-
 <body>
 
-<header>
-<div class="logo">
-<img src="../img/logo.jpg">
-</div>
-</header>
+    <header>
+        <div class="logo">
+            <img src="../img/logo.jpg" alt="Logo La Hacienda">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li class="active"><a href="servicios.html">Servicios</a></li>
+                <li><a href="menu.html">Menú</a></li>
+                <li><a href="resenas.html">Reseñas</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <button id="btnLogout" class="btn-logout">
+            <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+        </button>
+    </header>
 
-<main>
+    <main>
+        <section class="info">
+            <a href="servicios.html" class="btn-volver">
+                <i class="fa-solid fa-arrow-left"></i> Volver a Servicios
+            </a>
+            <h1>Áreas Verdes</h1>
+            <p>Espacios amplios y naturales para relajarte, caminar y disfrutar del aire libre.</p>
+            <ul>
+                <li>Jardines y zonas naturales</li>
+                <li>Ambiente tranquilo</li>
+                <li>Ideal para fotos</li>
+                <li>Sombra y frescura</li>
+            </ul>
+        </section>
+        <section class="galeria">
+            <img src="../img/areas1.jpg" alt="Áreas verdes 1">
+            <img src="../img/areas2.jpg" alt="Áreas verdes 2">
+            <img src="../img/areas3.jpg" alt="Áreas verdes 3">
+            <img src="../img/areas4.jpg" alt="Áreas verdes 4">
+        </section>
+    </main>
 
-<section class="info">
+    <footer class="site-footer">
+        <div class="footer-contenido">
+            <div class="footer-logo">
+                <img src="../img/logo.jpg" alt="La Hacienda Estelí">
+                <p>La tradición se vive en familia</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="menu.html">Menú</a></li>
+                    <li><a href="resenas.html">Reseñas</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p><i class="fa-solid fa-phone"></i> 5825-1393</p>
+                <p><i class="fa-solid fa-clock"></i> 9:00 A.M. – 8:00 P.M.</p>
+                <p><i class="fa-solid fa-location-dot"></i> Cervecería 300m al norte, Estelí</p>
+            </div>
+            <div class="footer-col">
+                <h4>Redes sociales</h4>
+                <div class="footer-redes">
+                    <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://tiktok.com" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copy">
+            <p>© 2025 La Hacienda Estelí · Todos los derechos reservados</p>
+        </div>
+    </footer>
 
-<a href="servicios.html">← Volver a Servicio</a>
-
-<h1>Areas Verdes</h1>
-
-<p>
-Espacios amplios y naturales
-para relajarte, caminar y
-disfrutar del aire libre.
-</p>
-
-<ul>
-<li>Jardines y zonas naturales</li>
-<li>Ambiente tranquilo</li>
-<li>Ideal para fotos</li>
-</ul>
-
-</section>
-
-<section class="galeria">
-
-<img src="../img/areas1.jpg">
-<img src="../img/areas2.jpg">
-<img src="../img/areas3.jpg">
-<img src="../img/areas4.jpg">
-
-</section>
-
-</main>
-
+    <script type="module" src="../js/logout.js"></script>
 </body>
 </html>

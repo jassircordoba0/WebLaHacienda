@@ -1,19 +1,2 @@
-// EFECTO REDES SOCIALES
-
-const redes = document.querySelectorAll(".red-social");
-
-redes.forEach(red => {
-
-    red.addEventListener("mouseenter", () => {
-
-        red.style.transform = "translateY(-10px) scale(1.05)";
-
-    });
-
-    red.addEventListener("mouseleave", () => {
-
-        red.style.transform = "translateY(0) scale(1)";
-
-    });
-
-});
+// Los efectos hover de redes sociales se manejan via CSS (.red-social:hover)
+// Este archivo se mantiene por si se requiere lógica futura en contacto.

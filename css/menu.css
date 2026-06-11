@@ -1,58 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body{
-    font-family: 'Inder', sans-serif;
-    background: #f5f5f3;
-}
-
-/* HEADER */
-
-header {
-    display: flex;
-    align-items: center;
-    padding: 25px 50px;
-    background: #fff;
-    position: relative;
-}
-
-.logo img{
-    width: 170px;
-}
-
-/* MENU */
-
-nav{
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-nav ul{
-    display: flex;
-    gap: 40px;
-    list-style: none;
-}
-
-nav ul li a{
-    text-decoration: none;
-    color: #111;
-    font-size: 20px;
-    transition: 0.3s;
-}
-
-nav ul li a:hover{
-    color: #4d7c2f;
-}
-
-.active a{
-    color: #4d7c2f;
-}
+/* menu.css — Estilos específicos de la página de menú */
+/* Header, nav y btn-logout vienen de base.css */
 
 /* TITULO */
 
@@ -66,7 +13,7 @@ nav ul li a:hover{
 }
 
 .titulo-menu h2{
-    color: #4d7c2f;
+    color: var(--color-primary);
     font-size: 38px;
     margin-bottom: 10px;
 }
@@ -226,23 +173,10 @@ nav ul li a:hover{
 }
 
 @media(max-width: 600px){
-
-    header{
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    nav ul{
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
     .contenedor-menu{
         grid-template-columns: 1fr;
     }
-
     .filtros{
         flex-wrap: wrap;
     }
-
 }
